@@ -1,9 +1,7 @@
-import React from 'react';
-import { PageAbsensiComponent } from './absensi/absensi-list/page-absensi.component';
-import { PageCreateAbsensi } from './absensi/absensi-page/page-create-absensi.component';
-import { PageHomeComponent } from './base/page-home.component';
-import { PageCreateComponent } from './karyawan/create-page/page-create.component';
-import { PageAuditComponent } from './karyawan/list-page/page-audit.component';
+import { PageDashboardComponent } from './page/dashboard/page-dashboard.component';
+import { PageMenu1Component } from './page/menu1/page-menu-1.component';
+import { PageMenu2Child1Component } from './page/menu2/child1/page-menu-2-child-1.component';
+import { PageMenu2Child2Component } from './page/menu2/child2/page-menu-2-child-2.component';
 
 
 interface Menu {
@@ -18,41 +16,27 @@ export const MenuList: Array<Menu> = [
   {
     path: '/',
     label: 'Home',
-    page: PageHomeComponent
+    page: PageDashboardComponent
   },
   {
-    path: '/absensi',
-    label: 'Absensi',
+    path: '/menu1',
+    label: 'Menu 1',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu2',
+    label: 'Menu 2',
     hasSubs: true,
     subs: [
       {
-        path: '/',
-        label: 'Absensi',
-        page: PageCreateAbsensi
+        path: '/child1',
+        label: 'Child 1',
+        page: PageMenu2Child1Component
       },
       {
-        path: '/data',
-        label: 'Data Absensi',
-        page: PageAbsensiComponent
-      }
-    ]
-    // page: PageAbsensiComponent
-
-  },
-  {
-    path: '/karyawan',
-    label: 'Karyawan',
-    hasSubs: true,
-    subs: [
-      {
-        path: '/data',
-        label: 'Audit Data',
-        page: PageAuditComponent
-      },
-      {
-        path: '/create',
-        label: 'Tambah Data',
-        page: PageCreateComponent
+        path: '/child2',
+        label: 'Child 2',
+        page: PageMenu2Child2Component
       },
     ]
   },

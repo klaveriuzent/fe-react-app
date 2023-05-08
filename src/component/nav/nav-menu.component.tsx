@@ -1,7 +1,7 @@
 import React from "react";
-import "./base-layout.css";
+import "./nav-menu.component.css";
 import { Layout, Menu } from "antd";
-import { MenuList } from "../drawer-menu-list";
+import { MenuList } from "../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";
 
 const { Sider, Content } = Layout;
