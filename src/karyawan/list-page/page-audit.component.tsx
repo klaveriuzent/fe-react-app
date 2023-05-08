@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import 'antd/dist/antd.css';
 import axios from 'axios';
 import { IUserData } from './page-audit';
 import { Typography, Space, Tag, Table, Button, message, Modal } from 'antd';

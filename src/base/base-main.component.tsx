@@ -1,5 +1,4 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import './base-layout.css';
 import { Layout, Menu } from 'antd';
 import { MenuList } from '../drawer-menu-list';

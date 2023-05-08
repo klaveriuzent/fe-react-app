@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import 'antd/dist/antd.css';
 import axios from 'axios';
 import Moment from 'moment';
 import { IAbsensiData } from './page-absensi';

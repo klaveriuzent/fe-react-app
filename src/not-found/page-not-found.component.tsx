@@ -1,5 +1,4 @@
 import React from "react";
-import 'antd/dist/antd.css';
 import { Result, Button } from 'antd';
 import { Link } from "react-router-dom";
 

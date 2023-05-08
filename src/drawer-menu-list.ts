@@ -9,7 +9,7 @@ import { PageAuditComponent } from './karyawan/list-page/page-audit.component';
 interface Menu {
   path: string,
   label: string,
-  page?: JSX.Element | React.ReactNode,
+  page?: () => JSX.Element,
   hasSubs?: boolean,
   subs?: Array<Menu>,
 }
