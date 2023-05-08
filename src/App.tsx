@@ -9,7 +9,7 @@ import { PageCreateComponent } from "./karyawan/create-page/page-create.componen
 import { PageAuditComponent } from "./karyawan/list-page/page-audit.component";
 import { PageUpdateComponent } from "./karyawan/update-page/page-update.component";
 
-import { PageNotFoundComponent } from "./not-found/page-not-found.component";
+import { PageNotFoundComponent } from "./page/not-found/page-not-found.component";
 
 function App() {
   return (
