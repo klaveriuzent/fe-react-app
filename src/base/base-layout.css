@@ -1,0 +1,13 @@
+.first-layout {
+  height: 100vh;
+}
+
+.second-layout {
+  margin: 8px;
+}
+
+.content {
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px;
+}

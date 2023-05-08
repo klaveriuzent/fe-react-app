@@ -1,0 +1,121 @@
+{
+  "karyawan": [
+    {
+      "name": "Ajie",
+      "age": 35,
+      "role": [
+        "Lead",
+        "Developer",
+        "Support"
+      ],
+      "email": "dummyAjie@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "Bima",
+      "age": 26,
+      "role": [
+        "Developer"
+      ],
+      "email": "dummyBima@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Caca",
+      "age": 24,
+      "role": [
+        "Lead",
+        "Marketing"
+      ],
+      "email": "dummyCaca@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "Dimas",
+      "age": 21,
+      "role": [
+        "Marketing",
+        "Support"
+      ],
+      "email": "dummyDimas@gmail.com",
+      "id": 5
+    },
+    {
+      "name": "Jefry",
+      "age": 22,
+      "role": [
+        "Developer"
+      ],
+      "email": "asd@a.com",
+      "id": 7
+    }
+  ],
+  "absensi": [
+    {
+      "name": "Ajie",
+      "date": "2021-09-15T09:54:01.094Z",
+      "status": [
+        "Masuk"
+      ],
+      "keterangan": "-",
+      "id": 1
+    },
+    {
+      "name": "Caca",
+      "date": "2021-09-23T05:42:11.259Z",
+      "status": [
+        "Masuk"
+      ],
+      "keterangan": "-",
+      "id": 4
+    },
+    {
+      "name": "Ajie",
+      "date": "2021-09-23T05:57:29.874Z",
+      "status": [
+        "Masuk"
+      ],
+      "keterangan": "-",
+      "id": 5
+    },
+    {
+      "name": "Bima",
+      "date": "2021-09-23T06:08:39.015Z",
+      "status": [
+        "Sakit"
+      ],
+      "keterangan": "-",
+      "id": 7
+    },
+    {
+      "name": "Bima",
+      "date": "2021-09-23T06:09:37.440Z",
+      "status": [
+        "Izin"
+      ],
+      "keterangan": "-",
+      "id": 8
+    },
+    {
+      "name": "Bima",
+      "date": "2021-09-29T07:37:58.543Z",
+      "status": [
+        "Masuk"
+      ],
+      "keterangan": "-",
+      "id": 11
+    },
+    {
+      "name": "Caca",
+      "date": "2021-09-29T07:40:33.051Z",
+      "status": [
+        "Izin"
+      ],
+      "keterangan": "-",
+      "id": 12
+    }
+  ],
+  "server-test": {
+    "respond": "Activated"
+  }
+}
