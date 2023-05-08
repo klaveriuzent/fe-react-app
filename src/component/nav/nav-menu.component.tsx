@@ -20,6 +20,7 @@ export const BaseMainComponent = ({
   return (
     <Layout className="first-layout">
       <Sider trigger={null}>
+        <div className="title-app">Title APP</div>
         <Menu
           theme="dark"
           mode="inline"

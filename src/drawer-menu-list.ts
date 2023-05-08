@@ -15,7 +15,7 @@ interface Menu {
 export const MenuList: Array<Menu> = [
   {
     path: '/',
-    label: 'Home',
+    label: 'Dashboard',
     page: PageDashboardComponent
   },
   {

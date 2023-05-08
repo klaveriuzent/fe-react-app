@@ -11,3 +11,15 @@
   border-radius: 16px;
   padding: 24px;
 }
+
+.title-app {
+  background-color: white;
+  margin: 4px;
+  border-radius: 8px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
