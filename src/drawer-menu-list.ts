@@ -40,4 +40,34 @@ export const MenuList: Array<Menu> = [
       },
     ]
   },
+  {
+    path: '/menu1',
+    label: 'Menu 3',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 4',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 5',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 6',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 7',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 8',
+    page: PageMenu1Component
+  },
 ]
