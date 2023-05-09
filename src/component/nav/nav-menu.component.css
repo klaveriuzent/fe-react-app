@@ -28,13 +28,24 @@
 }
 
 .menu-support {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(22,119,255);
   color: white;
   position: fixed;
   bottom: 0;
-  padding-top: 4px;
-  margin-bottom: 4px;
-  margin-left: 4px;
+  margin-bottom: 16px;
+  margin-left: 12px;
+  width: 174px;
+  height: 70px;
+  border-radius: 8px;
+}
+
+.menu-info {
+  font-weight: 600;
+  width: 87px;
+  margin-right: 16px;
 }
 
 .second-header {

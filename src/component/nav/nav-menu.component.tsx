@@ -1,7 +1,7 @@
 import React from "react";
 import "./nav-menu.component.css";
 import { Layout, Menu, Button } from "antd";
-import { PoweroffOutlined } from "@ant-design/icons";
+import { PoweroffOutlined, RightOutlined } from "@ant-design/icons";
 import { MenuList } from "../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";
 
@@ -56,8 +56,8 @@ export const BaseMainComponent = ({
           })}
         </Menu>
         <div className="menu-support">
-          Lihat Menu Lainnya disini
-          <Button>test</Button>
+          <div className="menu-info">Menu<br/>Lainnya disini</div>
+          <Button style={{ color: '#1677FF' }} icon={<RightOutlined />}/>
         </div>
       </Sider>
       <Layout className="second-layout">
