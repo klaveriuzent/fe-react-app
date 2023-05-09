@@ -1,15 +1,18 @@
 .first-layout {
   height: 100vh;
+  background-color: #d2d2d2;
 }
 
 .second-layout {
   margin: 8px;
+  background-color: #d2d2d2;
 }
 
 .content {
   background-color: white;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 24px;
+  overflow: auto;
 }
 
 .title-app {
