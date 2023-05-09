@@ -26,3 +26,44 @@
   justify-content: center;
   align-items: center;
 }
+
+.second-header {
+  display: flex;
+  justify-content: space-between;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: 17px;
+  font-weight: 600;
+}
+
+.server-title {
+  background-color: white;
+  padding-left: 16px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  border-top-left-radius: 8px;
+}
+
+.logout {
+  padding-left: 8px;
+  padding-right: 16px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  background-color: white;
+  border-top-right-radius: 8px;
+}
+
+.logout-icon {
+  font-size: 11px;
+}
+
+.logout:hover {
+  padding-left: 8px;
+  padding-right: 16px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  background-color: rgb(255, 73, 73);
+  color: white;
+  cursor: pointer;
+}

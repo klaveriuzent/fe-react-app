@@ -1,6 +1,7 @@
 import React from "react";
 import "./nav-menu.component.css";
 import { Layout, Menu } from "antd";
+import { PoweroffOutlined } from "@ant-design/icons";
 import { MenuList } from "../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";
 
@@ -56,6 +57,12 @@ export const BaseMainComponent = ({
         </Menu>
       </Sider>
       <Layout className="second-layout">
+        <div className="second-header">
+          <div className="server-title">Server : 123.123.123.123</div>
+          <div className="logout">
+            <PoweroffOutlined className="logout-icon" /> Logout
+          </div>
+        </div>
         <Content className="content">{children}</Content>
       </Layout>
     </Layout>
