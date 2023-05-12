@@ -52,6 +52,13 @@ export const BaseMainComponent = ({
           // Gunakan Vertical Jika Menu emiliki subMenu YANG TIDAK WAJAR
           mode="vertical"
           defaultSelectedKeys={[MenuList[0].label]}
+          // FOR NEXT UPDATE
+          // items={[
+          //   { 
+          //     label: 'item 1', 
+          //     key: 'item-1'
+          //   },
+          // ]}
         >
           {showAllMenu &&
             MenuList.slice(10).map((value) => renderSubMenu(value))}
