@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./nav-menu.component.css";
 import { Layout, Menu, Button } from "antd";
 import { PoweroffOutlined, RightOutlined } from "@ant-design/icons";
@@ -14,9 +14,17 @@ export const BaseMainComponent = ({
   children: JSX.Element | React.ReactNode;
 }) => {
   const navigate = useNavigate();
+  const [showAllMenu, setShowAllMenu] = useState(false);
+
   function onClickChangeChildren(page: any) {
     navigate(page);
   }
+
+  function toggleShowAllMenu() {
+    setShowAllMenu(!showAllMenu);
+  }
+
+  const menuLength = MenuList.length;
 
   return (
     <Layout className="first-layout">
@@ -27,38 +35,77 @@ export const BaseMainComponent = ({
           mode="inline"
           defaultSelectedKeys={[MenuList[0].label]}
         >
-          {MenuList.map((value) => {
-            if (value.hasSubs && value.subs && value.subs.length > 0) {
-              return (
-                <SubMenu key={value.label} title={value.label}>
-                  {value.subs.map((sub) => (
-                    <Menu.Item
-                      key={`${value.path}${sub.path}`}
-                      onClick={() =>
-                        onClickChangeChildren(`${value.path}${sub.path}`)
-                      }
-                    >
-                      {sub.label}
-                    </Menu.Item>
-                  ))}
-                </SubMenu>
-              );
-            } else {
-              return (
-                <Menu.Item
-                  key={value.path}
-                  onClick={() => onClickChangeChildren(value.path)}
-                >
-                  {value.label}
-                </Menu.Item>
-              );
-            }
-          })}
+          {showAllMenu &&
+            MenuList.slice(10).map((value) => {
+              if (value.hasSubs && value.subs && value.subs.length > 0) {
+                return (
+                  <SubMenu key={value.label} title={value.label}>
+                    {value.subs.map((sub) => (
+                      <Menu.Item
+                        key={`${value.path}${sub.path}`}
+                        onClick={() =>
+                          onClickChangeChildren(`${value.path}${sub.path}`)
+                        }
+                      >
+                        {sub.label}
+                      </Menu.Item>
+                    ))}
+                  </SubMenu>
+                );
+              } else {
+                return (
+                  <Menu.Item
+                    key={value.path}
+                    onClick={() => onClickChangeChildren(value.path)}
+                  >
+                    {value.label}
+                  </Menu.Item>
+                );
+              }
+            })}
+          {!showAllMenu &&
+            MenuList.slice(0, 10).map((value) => {
+              if (value.hasSubs && value.subs && value.subs.length > 0) {
+                return (
+                  <SubMenu key={value.label} title={value.label}>
+                    {value.subs.map((sub) => (
+                      <Menu.Item
+                        key={`${value.path}${sub.path}`}
+                        onClick={() =>
+                          onClickChangeChildren(`${value.path}${sub.path}`)
+                        }
+                      >
+                        {sub.label}
+                      </Menu.Item>
+                    ))}
+                  </SubMenu>
+                );
+              } else {
+                return (
+                  <Menu.Item
+                    key={value.path}
+                    onClick={() => onClickChangeChildren(value.path)}
+                  >
+                    {value.label}
+                  </Menu.Item>
+                );
+              }
+            })}
         </Menu>
-        <div className="menu-support">
-          <div className="menu-info">Menu<br/>Lainnya disini</div>
-          <Button style={{ color: '#1677FF' }} icon={<RightOutlined />}/>
-        </div>
+        {menuLength > 10 && (
+          <div className="menu-support">
+            <div className="menu-info">
+              Menu
+              <br />
+              Lainnya disini
+            </div>
+            <Button
+              style={{ color: "#1677FF" }}
+              icon={<RightOutlined />}
+              onClick={toggleShowAllMenu}
+            />
+          </div>
+        )}
       </Sider>
       <Layout className="second-layout">
         <div className="second-header">
