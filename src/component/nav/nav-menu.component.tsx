@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./nav-menu.component.css";
-import { Layout, Menu } from "antd";
-import { PoweroffOutlined } from "@ant-design/icons";
+import { Layout, Menu, Button } from "antd";
+import { PoweroffOutlined, RightOutlined } from "@ant-design/icons";
 import { MenuList } from "../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";
 
@@ -14,9 +14,34 @@ export const BaseMainComponent = ({
   children: JSX.Element | React.ReactNode;
 }) => {
   const navigate = useNavigate();
+  const [showAllMenu, setShowAllMenu] = useState(false);
+
   function onClickChangeChildren(page: any) {
     navigate(page);
   }
+
+  function toggleShowAllMenu() {
+    setShowAllMenu(!showAllMenu);
+  }
+
+  const menuLength = MenuList.length;
+
+  const renderSubMenu = (menu: any, parentPath = '') => {
+    const path = parentPath + menu.path;
+    if (menu.hasSubs && menu.subs && menu.subs.length > 0) {
+      return (
+        <SubMenu key={path} title={menu.label}>
+          {menu.subs.map((sub) => renderSubMenu(sub, path))}
+        </SubMenu>
+      );
+    } else {
+      return (
+        <Menu.Item key={path} onClick={() => onClickChangeChildren(path)}>
+          {menu.label}
+        </Menu.Item>
+      );
+    }
+  };
 
   return (
     <Layout className="first-layout">
@@ -24,37 +49,29 @@ export const BaseMainComponent = ({
         <div className="title-app">Title APP</div>
         <Menu
           theme="dark"
-          mode="inline"
+          // Gunakan Vertical Jika Menu emiliki subMenu YANG TIDAK WAJAR
+          mode="vertical"
           defaultSelectedKeys={[MenuList[0].label]}
         >
-          {MenuList.map((value) => {
-            if (value.hasSubs && value.subs && value.subs.length > 0) {
-              return (
-                <SubMenu key={value.label} title={value.label}>
-                  {value.subs.map((sub) => (
-                    <Menu.Item
-                      key={`${value.path}${sub.path}`}
-                      onClick={() =>
-                        onClickChangeChildren(`${value.path}${sub.path}`)
-                      }
-                    >
-                      {sub.label}
-                    </Menu.Item>
-                  ))}
-                </SubMenu>
-              );
-            } else {
-              return (
-                <Menu.Item
-                  key={value.path}
-                  onClick={() => onClickChangeChildren(value.path)}
-                >
-                  {value.label}
-                </Menu.Item>
-              );
-            }
-          })}
+          {showAllMenu &&
+            MenuList.slice(10).map((value) => renderSubMenu(value))}
+          {!showAllMenu &&
+            MenuList.slice(0, 10).map((value) => renderSubMenu(value))}
         </Menu>
+        {menuLength > 10 && (
+          <div className="menu-support">
+            <div className="menu-info">
+              Menu
+              <br />
+              Lainnya disini
+            </div>
+            <Button
+              style={{ color: "#1677FF" }}
+              icon={<RightOutlined />}
+              onClick={toggleShowAllMenu}
+            />
+          </div>
+        )}
       </Sider>
       <Layout className="second-layout">
         <div className="second-header">
