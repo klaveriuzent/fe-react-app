@@ -26,7 +26,7 @@ export const BaseMainComponent = ({
 
   const menuLength = MenuList.length;
 
-  const renderSubMenu = (menu: any, parentPath = '') => {
+  const renderSubMenu = (menu: any, parentPath = "") => {
     const path = parentPath + menu.path;
     if (menu.hasSubs && menu.subs && menu.subs.length > 0) {
       return (
@@ -53,12 +53,39 @@ export const BaseMainComponent = ({
           mode="vertical"
           defaultSelectedKeys={[MenuList[0].label]}
           // FOR NEXT UPDATE
-          // items={[
-          //   { 
-          //     label: 'item 1', 
+
+          // const [current, setCurrent] = useState();
+
+          // const func = () => {
+          //    setCurrent(e.key);
+          // }
+
+          // const func2 = () => {
+          //    setCurrent(e.key);
+          // }
+
+          // const items = [
+          //   {
+          //     label: 'item 1',
           //     key: 'item-1'
+          //     onClick: func,
+          //     className: class1,
           //   },
-          // ]}
+          //   {
+          //     label: 'item 1',
+          //     key: 'item-1'
+          //     onClick: func2,
+          //     className: class2,
+          //   },,
+          //   {
+          //     label: 'sub menu',
+          //     key: 'submenu',
+          //     children: [{ label: 'item 3', key: 'submenu-item-1' }],
+          //   },
+          // ];
+
+          // return <Menu selectedKeys={[current]} mode="horizontal" items={items} />;
+          
         >
           {showAllMenu &&
             MenuList.slice(10).map((value) => renderSubMenu(value))}
