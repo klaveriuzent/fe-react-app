@@ -40,4 +40,88 @@ export const MenuList: Array<Menu> = [
       },
     ]
   },
+  {
+    path: '/menu1',
+    label: 'Menu 3',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 4',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 5',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 6',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 7',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 8',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 9',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 10',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 11',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 12',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 13',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 14',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 15',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 16',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 17',
+    page: PageMenu1Component
+  },{
+    path: '/menu1',
+    label: 'Menu 18',
+    page: PageMenu1Component
+  },
+  {
+    path: '/menu1',
+    label: 'Menu 19',
+    page: PageMenu1Component
+  }
 ]
