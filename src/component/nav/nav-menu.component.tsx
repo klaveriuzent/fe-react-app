@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./nav-menu.component.css";
 import { Layout, Menu } from "antd";
 import { PoweroffOutlined } from "@ant-design/icons";
@@ -26,7 +26,7 @@ export const BaseMainComponent = ({
       return {
         label: menu.label,
         key: path,
-        children: menu.subs.map((sub) => renderSubMenu(sub, path)),
+        children: menu.subs.flatMap((sub) => renderSubMenu(sub, path)),
       };
     } else {
       return {
@@ -37,21 +37,24 @@ export const BaseMainComponent = ({
     }
   };
 
-  const items = MenuList.map((menu) => {
-    if (menu.hasSubs && menu.subs && menu.subs.length > 0) {
-      return {
-        label: menu.label,
-        key: menu.path,
-        children: menu.subs.map((sub) => renderSubMenu(sub, menu.path)),
-      };
-    } else {
-      return {
-        label: menu.label,
-        key: menu.path,
-        onClick: () => onClickChangeChildren(menu.path),
-      };
-    }
-  });
+  const items = useMemo(() => {
+    return MenuList.map((menu) => {
+      if (menu.hasSubs && menu.subs && menu.subs.length > 0) {
+        return {
+          label: menu.label,
+          key: menu.path,
+          children: menu.subs.flatMap((sub) => renderSubMenu(sub, menu.path)),
+        };
+      } else {
+        return {
+          label: menu.label,
+          key: menu.path,
+          onClick: () => onClickChangeChildren(menu.path),
+        };
+      }
+    });
+    // eslint-disable-next-line
+  }, [MenuList, onClickChangeChildren, renderSubMenu]);
 
   return (
     <Layout className="first-layout">
