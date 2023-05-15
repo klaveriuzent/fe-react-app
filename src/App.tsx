@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { NavMenuVertical } from "./component/nav-menu-vertical/nav-menu-vertical.component";
+import { NavMenuVertical } from "./component/nav/nav-menu-vertical/nav-menu-vertical.component";
 import { PageDashboardComponent } from "./page/dashboard/page-dashboard.component";
 
 import { PageNotFoundComponent } from "./page/not-found/page-not-found.component";
