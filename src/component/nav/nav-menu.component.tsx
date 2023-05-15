@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "./nav-menu.component.css";
-import { Layout, Menu, Button } from "antd";
+import { Layout, Button, Menu } from "antd";
 import { PoweroffOutlined, RightOutlined } from "@ant-design/icons";
-import { MenuList } from "../../drawer-menu-list";
+import { MenuList } from "./../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";
 
 const { Sider, Content } = Layout;
-const { SubMenu } = Menu;
 
 export const BaseMainComponent = ({
   children,
@@ -15,9 +14,11 @@ export const BaseMainComponent = ({
 }) => {
   const navigate = useNavigate();
   const [showAllMenu, setShowAllMenu] = useState(false);
+  const [current, setCurrent] = useState(MenuList[0].label);
 
-  function onClickChangeChildren(page: any) {
-    navigate(page);
+  function onClickChangeChildren(key: string) {
+    setCurrent(key);
+    navigate(key);
   }
 
   function toggleShowAllMenu() {
@@ -26,22 +27,38 @@ export const BaseMainComponent = ({
 
   const menuLength = MenuList.length;
 
-  const renderSubMenu = (menu: any, parentPath = '') => {
+  const renderSubMenu = (menu: any, parentPath = "") => {
     const path = parentPath + menu.path;
     if (menu.hasSubs && menu.subs && menu.subs.length > 0) {
-      return (
-        <SubMenu key={path} title={menu.label}>
-          {menu.subs.map((sub) => renderSubMenu(sub, path))}
-        </SubMenu>
-      );
+      return {
+        label: menu.label,
+        key: path,
+        children: menu.subs.map((sub) => renderSubMenu(sub, path)),
+      };
     } else {
-      return (
-        <Menu.Item key={path} onClick={() => onClickChangeChildren(path)}>
-          {menu.label}
-        </Menu.Item>
-      );
+      return {
+        label: menu.label,
+        key: path,
+        onClick: () => onClickChangeChildren(path),
+      };
     }
   };
+
+  const items = MenuList.map((menu) => {
+    if (menu.hasSubs && menu.subs && menu.subs.length > 0) {
+      return {
+        label: menu.label,
+        key: menu.path,
+        children: menu.subs.map((sub) => renderSubMenu(sub, menu.path)),
+      };
+    } else {
+      return {
+        label: menu.label,
+        key: menu.path,
+        onClick: () => onClickChangeChildren(menu.path),
+      };
+    }
+  });
 
   return (
     <Layout className="first-layout">
@@ -49,15 +66,10 @@ export const BaseMainComponent = ({
         <div className="title-app">Title APP</div>
         <Menu
           theme="dark"
-          // Gunakan Vertical Jika Menu emiliki subMenu YANG TIDAK WAJAR
           mode="vertical"
-          defaultSelectedKeys={[MenuList[0].label]}
-        >
-          {showAllMenu &&
-            MenuList.slice(10).map((value) => renderSubMenu(value))}
-          {!showAllMenu &&
-            MenuList.slice(0, 10).map((value) => renderSubMenu(value))}
-        </Menu>
+          selectedKeys={[current]}
+          items={items}
+        />
         {menuLength > 10 && (
           <div className="menu-support">
             <div className="menu-info">
