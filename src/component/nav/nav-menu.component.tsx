@@ -1,11 +1,10 @@
 import React, { useState, useMemo } from "react";
 import "./nav-menu.component.css";
 import { Layout, Menu } from "antd";
-import { PoweroffOutlined } from "@ant-design/icons";
 import { MenuList } from "./../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";
 
-const { Sider, Content } = Layout;
+const { Content } = Layout;
 
 export const BaseMainComponent = ({
   children,
@@ -58,22 +57,26 @@ export const BaseMainComponent = ({
 
   return (
     <Layout className="first-layout">
-      <Sider trigger={null}>
-        <div className="title-app">Title APP</div>
+        <div className="header-base">
+          <div className="left-component">
+            <div className="title-app">Title APP</div>
+          </div>
+          <div className="right-components">
+            <div className="right-component-1">
+              <div>Server : 123.123.123.123</div>
+            </div>
+            <div className="right-component-2">
+              <div className="logout-base">Logout</div>
+            </div>
+          </div>
+        </div>
         <Menu
           theme="dark"
-          mode="vertical"
+          mode="horizontal"
           selectedKeys={[current]}
           items={items}
         />
-      </Sider>
       <Layout className="second-layout">
-        <div className="second-header">
-          <div className="server-title">Server : 123.123.123.123</div>
-          <div className="logout">
-            <PoweroffOutlined className="logout-icon" /> Logout
-          </div>
-        </div>
         <Content className="content">{children}</Content>
       </Layout>
     </Layout>
