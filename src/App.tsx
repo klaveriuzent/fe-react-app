@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { BaseMainComponent } from "./component/nav/nav-menu.component";
+import { NavMenuVertical } from "./component/nav-menu-vertical/nav-menu-vertical.component";
 import { PageDashboardComponent } from "./page/dashboard/page-dashboard.component";
 
 import { PageNotFoundComponent } from "./page/not-found/page-not-found.component";
@@ -15,36 +15,36 @@ function App() {
         <Route
           path="/"
           element={
-            <BaseMainComponent>
+            <NavMenuVertical>
               <PageDashboardComponent />
-            </BaseMainComponent>
+            </NavMenuVertical>
           }
         />
 
         <Route
           path="/menu1"
           element={
-            <BaseMainComponent>
+            <NavMenuVertical>
               <PageMenu1Component />
-            </BaseMainComponent>
+            </NavMenuVertical>
           }
         />
 
         <Route
           path="/menu2/child1"
           element={
-            <BaseMainComponent>
+            <NavMenuVertical>
               <PageMenu2Child1Component />
-            </BaseMainComponent>
+            </NavMenuVertical>
           }
         />
 
         <Route
           path="/menu2/child2"
           element={
-            <BaseMainComponent>
+            <NavMenuVertical>
               <PageMenu2Child2Component />
-            </BaseMainComponent>
+            </NavMenuVertical>
           }
         />
 
