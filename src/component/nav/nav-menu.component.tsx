@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./nav-menu.component.css";
-import { Layout, Button, Menu } from "antd";
-import { PoweroffOutlined, RightOutlined } from "@ant-design/icons";
+import { Layout, Menu } from "antd";
+import { PoweroffOutlined } from "@ant-design/icons";
 import { MenuList } from "./../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";
 
@@ -13,19 +13,12 @@ export const BaseMainComponent = ({
   children: JSX.Element | React.ReactNode;
 }) => {
   const navigate = useNavigate();
-  const [showAllMenu, setShowAllMenu] = useState(false);
   const [current, setCurrent] = useState(MenuList[0].label);
 
   function onClickChangeChildren(key: string) {
     setCurrent(key);
     navigate(key);
   }
-
-  function toggleShowAllMenu() {
-    setShowAllMenu(!showAllMenu);
-  }
-
-  const menuLength = MenuList.length;
 
   const renderSubMenu = (menu: any, parentPath = "") => {
     const path = parentPath + menu.path;
@@ -70,20 +63,6 @@ export const BaseMainComponent = ({
           selectedKeys={[current]}
           items={items}
         />
-        {menuLength > 10 && (
-          <div className="menu-support">
-            <div className="menu-info">
-              Menu
-              <br />
-              Lainnya disini
-            </div>
-            <Button
-              style={{ color: "#1677FF" }}
-              icon={<RightOutlined />}
-              onClick={toggleShowAllMenu}
-            />
-          </div>
-        )}
       </Sider>
       <Layout className="second-layout">
         <div className="second-header">
