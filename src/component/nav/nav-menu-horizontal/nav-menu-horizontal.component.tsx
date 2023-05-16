@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import "./nav-menu.component.css";
+import "./nav-menu-horizontal.component.css";
 import { Layout, Menu } from "antd";
 import { MenuList } from "./../../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";

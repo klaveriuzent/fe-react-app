@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import "./nav-menu.component.css";
+import "./nav-menu-vertical.component.css";
 import { Layout, Menu } from "antd";
 import { PoweroffOutlined } from "@ant-design/icons";
 import { MenuList } from "../../../drawer-menu-list";
