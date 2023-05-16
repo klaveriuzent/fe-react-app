@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import "./nav-menu-vertical.component.css";
 import { Layout, Menu } from "antd";
-import { PoweroffOutlined } from "@ant-design/icons";
+import { PoweroffOutlined, CaretLeftOutlined } from "@ant-design/icons";
 import { MenuList } from "../../../drawer-menu-list";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +14,7 @@ export const NavMenuVertical = ({
 }) => {
   const navigate = useNavigate();
   const [current, setCurrent] = useState(MenuList[0].label);
+  const [collapsed, setCollapsed] = useState(false);
 
   function onClickChangeChildren(key: string) {
     setCurrent(key);
@@ -56,9 +57,13 @@ export const NavMenuVertical = ({
     // eslint-disable-next-line
   }, [MenuList, onClickChangeChildren, renderSubMenu]);
 
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+
   return (
     <Layout className="first-layout">
-      <Sider trigger={null}>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="title-app">Title APP</div>
         <Menu
           theme="dark"
@@ -67,6 +72,9 @@ export const NavMenuVertical = ({
           items={items}
         />
       </Sider>
+      <div className="toggle-collapsed" onClick={toggleCollapsed}>
+          <CaretLeftOutlined />
+        </div>
       <Layout className="second-layout">
         <div className="second-header">
           <div className="server-title">Server : 123.123.123.123</div>

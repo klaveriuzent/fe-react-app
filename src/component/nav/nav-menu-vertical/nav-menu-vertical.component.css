@@ -27,6 +27,14 @@
   align-items: center;
 }
 
+.toggle-collapsed {
+  margin-top: 4px;
+  width: 16px;
+  height: 40px;
+  color: white;
+  
+}
+
 .menu-support {
   display: flex;
   justify-content: center;
